@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package restaurant_7;
-
+import menu.Menus;
+import admin.admin;
+import order.order;
+import order.list_order;
 /**
  *
  * @author nurhuda ganteng
@@ -17,6 +20,11 @@ public class Main_Program extends javax.swing.JFrame {
     public Main_Program() {
         initComponents();
     }
+    
+    Menus menu = new Menus();
+    admin frm_admin = new admin();
+    order frm_order = new order();
+    list_order frm_list_order = new list_order();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +36,7 @@ public class Main_Program extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Dekstop = new javax.swing.JDesktopPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -49,22 +57,32 @@ public class Main_Program extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 881, Short.MAX_VALUE)
+        javax.swing.GroupLayout DekstopLayout = new javax.swing.GroupLayout(Dekstop);
+        Dekstop.setLayout(DekstopLayout);
+        DekstopLayout.setHorizontalGroup(
+            DekstopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 907, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        DekstopLayout.setVerticalGroup(
+            DekstopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jButton1.setText("Order");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Menu");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Laporan");
+        jButton3.setText("List Order");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -72,8 +90,18 @@ public class Main_Program extends javax.swing.JFrame {
         });
 
         jButton4.setText("Admin");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Grup Admin");
+        jButton5.setText("Tutup");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,8 +116,8 @@ public class Main_Program extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Dekstop)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -97,18 +125,18 @@ public class Main_Program extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Dekstop, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
-                        .addGap(46, 46, 46)
+                        .addGap(29, 29, 29)
                         .addComponent(jButton4)
-                        .addGap(18, 18, 18)
+                        .addGap(43, 43, 43)
                         .addComponent(jButton5)
-                        .addGap(0, 761, Short.MAX_VALUE)))
+                        .addGap(0, 753, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -117,7 +145,36 @@ public class Main_Program extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        cls();
+        Dekstop.add(frm_list_order);
+        frm_list_order.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        cls();
+        Dekstop.add(menu);
+        menu.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        cls();
+        Dekstop.add(frm_admin);
+        frm_admin.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cls();
+        Dekstop.add(frm_order);
+        frm_order.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,14 +210,21 @@ public class Main_Program extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void cls(){
+        menu.setVisible(false);
+        frm_admin.setVisible(false);
+        frm_order.setVisible(false);
+        frm_list_order.setVisible(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane Dekstop;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFrame jFrame1;
     // End of variables declaration//GEN-END:variables
 }
